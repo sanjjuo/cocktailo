@@ -14,30 +14,32 @@ const Navbar = () => {
       scrollTrigger: {
         trigger: "#nav",
         start: "bottom top",
+        toggleActions: "play reverse play reverse",
       },
     });
+
     navTween.fromTo(
       "#nav",
-      { backgroundColor: "transparent" },
+      { backgroundColor: "#000000", backdropFilter: "blur(0px)" },
       {
-        backgroundColor: "#00000050",
-        backgroundFilter: "blur(10px)",
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        backdropFilter: "blur(10px)",
         duration: 1,
         ease: "power1.inOut",
       }
     );
   }, []);
+
   return (
-    <div
-      id="nav"
-      className="sticky top-0 w-full z-50 flex items-center justify-between h-20 app-width px-5 md:p-0"
-    >
-      <AppLogo />
-      <div className="hidden md:block">
-        <NavLinks />
-      </div>
-      <div className="block md:hidden">
-        <MobileNavbar />
+    <div id="nav" className="sticky top-0 w-full z-50  ">
+      <div className="flex items-center justify-between app-width px-5 md:p-0 h-20">
+        <AppLogo />
+        <div className="hidden md:block">
+          <NavLinks />
+        </div>
+        <div className="block md:hidden">
+          <MobileNavbar />
+        </div>
       </div>
     </div>
   );

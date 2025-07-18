@@ -1,8 +1,9 @@
 "use client";
-import gsap from "gsap";
-import React from "react";
-import { ScrollTrigger, SplitText } from "gsap/all";
+import About from "@/components/About/About";
+import Cocktails from "@/components/Cocktails/Cocktails";
 import Hero from "@/components/Hero/Hero";
+import gsap from "gsap";
+import { ScrollTrigger, SplitText } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -10,7 +11,8 @@ const MainPage = () => {
   return (
     <div>
       <Hero />
-      <div className="h-dvh bg-black" />
+      <Cocktails/>
+      <About />
     </div>
   );
 };
