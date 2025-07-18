@@ -16,3 +16,22 @@ export const ratingImages = [
     image: "/profile4.png",
   },
 ];
+
+export const CraftedToImpress = [
+  {
+    id: 1,
+    list: "Perfectly balanced blends",
+  },
+  {
+    id: 2,
+    list: "Premium spirits & ingredients",
+  },
+  {
+    id: 3,
+    list: "Crafted by expert mixologists",
+  },
+  {
+    id: 4,
+    list: "A sensory cocktail experience",
+  },
+];

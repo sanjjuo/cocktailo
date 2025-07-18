@@ -1,22 +1,49 @@
+"use client";
 import React from "react";
 import { Badge } from "../ui/badge";
 import { Star } from "lucide-react";
 import { ratingImages } from "./data";
 import Image from "next/image";
 import { Separator } from "../ui/separator";
+import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/all";
+import gsap from "gsap";
 
 const HeadingAndRatings = () => {
   const stars = Array.from({ length: 5 }, (_, i) => (
     <Star key={i} className="fill-white w-4 h-4" />
   ));
 
+  useGSAP(() => {
+    const titleSplit = SplitText.create("#heading", {
+      type: "words",
+    });
+
+    const scrollTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#headingsAndRatings",
+        start: "top center",
+      },
+    });
+
+    scrollTimeline.from(titleSplit.words, {
+      opacity: 0,
+      duration: 1,
+      yPercent: 100,
+      ease: "expo.out",
+      stagger: 0.02,
+    });
+  }, []);
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between gap-5 md:gap-32">
+    <div
+      id="headingsAndRatings"
+      className="flex flex-col md:flex-row items-center justify-between gap-5 md:gap-32"
+    >
       <div className="space-y-10">
         <Badge className="bg-white text-black h-10 w-32 flex items-center justify-center text-lg rounded-3xl shadow-white cursor-pointer hover:bg-white/90">
           Best cocktails
         </Badge>
-        <h1 className="text-3xl md:text-7xl font-bold">
+        <h1 id="heading" className="text-3xl md:text-7xl font-bold">
           Where every detail matters - from muddle to garnish.
         </h1>
       </div>
