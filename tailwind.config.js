@@ -8,6 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        "spin-slow": "spin 2s linear infinite",
+        "spin-fast": "spin 0.6s linear infinite",
+      },
       fontFamily: {},
       borderRadius: {
         lg: "var(--radius)",
@@ -18,6 +22,7 @@ module.exports = {
         app: {
           primary: "#DD571C",
           secondary: "#EC9706",
+          sidebar_color: "#0F0F0F",
         },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -59,8 +64,18 @@ module.exports = {
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
         },
+        sidebar: {
+          DEFAULT: "hsl(var(--sidebar-background))",
+          foreground: "hsl(var(--sidebar-foreground))",
+          primary: "hsl(var(--sidebar-primary))",
+          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+          accent: "hsl(var(--sidebar-accent))",
+          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+          border: "hsl(var(--sidebar-border))",
+          ring: "hsl(var(--sidebar-ring))",
+        },
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("tailwind-scrollbar")],
 };

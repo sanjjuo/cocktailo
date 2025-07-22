@@ -1,7 +1,10 @@
 "use client";
 import About from "@/components/About/About";
-import Cocktails from "@/components/Cocktails/Cocktails";
+import Art from "@/components/Art/Art";
+import HomeCocktailList from "@/components/Cocktails/HomeCocktailList/HomeCocktailList";
+import Contact from "@/components/contact/contact";
 import Hero from "@/components/Hero/Hero";
+import Menu from "@/components/Menu/Menu";
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
 
@@ -11,8 +14,17 @@ const MainPage = () => {
   return (
     <div>
       <Hero />
-      <Cocktails/>
-      <About />
+      <HomeCocktailList />
+      <div className="bg-black">
+        <About />
+      </div>
+      <div className="hidden lg:block bg-radial-dark">
+        <Art />
+      </div>
+      <div className="bg-black">
+        <Menu />
+      </div>
+      <Contact />
     </div>
   );
 };

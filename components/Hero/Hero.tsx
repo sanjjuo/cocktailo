@@ -10,6 +10,7 @@ import Link from "next/link";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Hero = () => {
+  const videoRef = React.useRef<gsap.core.Timeline | null>(null);
   useGSAP(() => {
     const mainTitle = new SplitText("#main-title", { type: "chars, words" });
     const subtitleLine1 = new SplitText("#subtitle-line1", {
@@ -61,6 +62,26 @@ const Hero = () => {
       )
       .to("#left-leaf", { y: 200 }, 0)
       .to("#right-leaf", { y: -200 }, 0);
+
+    // videoRef.current = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: ".video",
+    //     start: "center 60%",
+    //     end: "bottom top",
+    //     scrub: true,
+    //     pin: true,
+    //     // onEnter: () => videoRef.current.play(),
+    //     // onEnterBack: () => videoRef.current.play(),
+    //     // onLeave: () => videoRef.current.pause(),
+    //     // onLeaveBack: () => videoRef.current.pause(),
+    //   },
+    // });
+
+    // videoRef.current.onloadedMetadata = () => {
+    //   videoRef.to(videoRef.current, {
+    //     cuZT,
+    //   });
+    // };
   }, []);
 
   return (
@@ -76,6 +97,16 @@ const Hero = () => {
           height={900}
           alt="Mojito cocktail illustration"
         />
+        {/* <div className="video">
+          <video
+            ref={videoRef}
+            muted
+            autoPlay
+            playsInline
+            preload="auto"
+            src="/videos/output.mp4"
+          />
+        </div> */}
         <h1
           id="main-title"
           className="absolute inset-0 flex items-start pt-10 md:p-0 md:items-center justify-center text-7xl lg:text-[190px] font-semibold text-center custom-font z-40"
@@ -124,7 +155,7 @@ const Hero = () => {
             of the cocktail.
           </p>
           <Link
-            href="https://www.allrecipes.com/article/top-50-cocktail-list-and-recipes/"
+            href="/cocktails"
             target="_blank"
             className="underline underline-offset-2 text-app-primary font-semibold tracking-wide"
           >

@@ -1,5 +1,6 @@
 /* imports */
 @import "./styles/variables.css";
+@import "./styles/cards.css";
 
 @tailwind base;
 @tailwind components;
@@ -10,16 +11,51 @@
     @apply border-border;
   }
   body {
-    @apply w-full text-white scroll-smooth overflow-x-hidden bg-fixed bg-center bg-cover;
+    @apply w-full !text-white scroll-smooth overflow-x-hidden bg-fixed bg-center bg-cover;
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)),
       url("/noise-bg.jpg");
   }
+}
 
+@layer utilities {
   .app-width {
     @apply max-w-[1500px] mx-auto;
   }
 
   .custom-font {
     font-family: var(--font-nosifer);
+  }
+  .gradient-text {
+    background: linear-gradient(to right, #ffc500, #c21500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@layer components {
+  .masked-image {
+    mask-image: url("/mask-img.png");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 50%;
+    width: 500px;
+    max-height: 500px;
+  }
+  #masked-content {
+    opacity: 0;
+  }
+  .bg-radial-dark {
+    background: radial-gradient(at center, #151415, #010101);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

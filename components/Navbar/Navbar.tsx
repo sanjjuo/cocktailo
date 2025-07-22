@@ -1,12 +1,9 @@
 "use client";
-import React from "react";
-import AppLogo from "../common/AppLogo/AppLogo";
-import { navLinks } from "./data";
-import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import NavLinks from "./NavLinks";
+import AppLogo from "../common/AppLogo/AppLogo";
 import MobileNavbar from "./MobileNavbar";
+import NavLinks from "./NavLinks";
 
 const Navbar = () => {
   useGSAP(() => {

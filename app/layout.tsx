@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { EB_Garamond, Nosifer } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar/Navbar";
+import Providers from "./Providers";
 
 const fontGaramond = EB_Garamond({
   variable: "--font-garamond",
@@ -30,8 +30,7 @@ export default function RootLayout({
       <body
         className={`${fontGaramond.variable} ${fontNosifer.variable} ${fontGaramond.className} antialiased`}
       >
-        <Navbar />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
